@@ -70,3 +70,8 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'devise'
+gem 'pry-rails'
+gem 'simple_calendar', '~> 2.0'
+gem 'sassc'
