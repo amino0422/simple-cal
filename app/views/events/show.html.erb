@@ -1,22 +1,62 @@
-<p id="notice"><%= notice %></p>
+<div class="main">
+  <div class="left">
 
-<div class="show">
-  <p>
-    <strong>タイトル</strong>
-    <%= @event.title %>
-  </p>
+    <div class="left-header">
+      <div class="nickname">
+        <a href="#">Tom</a>
+      </div>
+      <div class="nickname-change">
+        <a href="#">カレンダー変更</a>
+      </div>
+    </div>
 
-  <p>
-    <strong>日時</strong>
-    <%= @event.start_time.strftime("%m-%d") %>
-  </p>
+    <div class="left-main">
+      <%= form_with(model: @event, local: true) do |form| %>
+        <div class="form-group">
+          <%= form.label :title, "タイトル", class: "form-tag" %>
+          <%= form.text_field :title, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.label :start, "開始時間", class: "form-tag" %>
+          <%= form.datetime_select :start, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.label :content, "メモ / 振り返り", class: "form-tag" %>
+          <%= form.text_field :content, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= form.submit "保存", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-  <p>
-    <strong>内容</strong>
-    <%= @event.content %>
-  </p>
+  <div class="right">
 
-  <%= link_to '編集', edit_event_path(@blog) %>
-  <%= link_to '消去',event_path(@event.id), method: :delete, data: { confirm: '本当に?' } %>
-  <%= link_to '戻る', events_path %>
+    <div class="right-header">
+      <div class="page-title">Simple Calendar</div>
+    </div>
+
+    <div class="show">
+      <p>
+        <strong>タイトル</strong>
+        <%= @event.title %>
+      </p>
+
+      <p>
+        <strong>日時</strong>
+        <%= @event.start.strftime("%m-%d") %>
+      </p>
+
+      <p>
+        <strong>内容</strong>
+        <%= @event.content %>
+      </p>
+
+      <%= link_to '編集', edit_event_path(@event) %>
+      <%= link_to '消去',event_path(@event.id), method: :delete, data: { confirm: '本当に?' } %>
+      <%= link_to '戻る', events_path %>
+    </div>
+
+  </div>
 </div>

@@ -14,3 +14,80 @@
  *= require_tree .
  *= require_self
  */
+
+.header {
+  height: 100px;
+}
+
+.main {
+  display: flex;
+}
+.left {
+  background-color: #253141;
+  width: 550px;
+  height: 100vh;
+}
+
+.left-header {
+  height: 80px;
+  padding: 0 20px;
+  background-color: #253141;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nickname a{
+  font-size: 16px;
+  color: #FAFAFA;
+  text-decoration: none;
+}
+
+.nickname-change a {
+  font-size: 10px;
+  border: 1px solid lightblue;
+  padding: 14px;
+  color: deepskyblue;
+  text-decoration: none;
+}
+
+.left-main {
+  background-color: #2F3E51;
+  color: white;
+  height: calc(100vh - 80px);
+  padding: 20px;
+}
+
+.right {
+  background-color: #FFFFFF;
+  width: calc(100vw - 550px);
+}
+
+.right-header {
+  height: 80px;
+  display: flex;
+}
+
+.page-title {
+  color: #333;
+  font-size: 24px;
+  padding: 20px;
+}
+
+.cal {
+  background-color: #FAFAFA;
+  height: calc(100vh - 80px);
+  padding: 20px;
+}
+
+.show {
+  background-color: #FAFAFA;
+  height: calc(100vh - 80px);
+  padding: 20px;
+}
+
+.edit {
+  background-color: #FAFAFA;
+  height: calc(100vh - 80px);
+  padding: 20px;
+}

@@ -1,66 +1,54 @@
-<p id="notice"><%= notice %></p>
+<div class="main">
+  <div class="left">
 
-<div class="toppage">
-  <h1 class="top">カレンダー</h1>
-  <br>
+    <div class="left-header">
+      <div class="nickname">
+        <a href="#">Tom</a>
+      </div>
+      <div class="nickname-change">
+        <a href="#">カレンダー変更</a>
+      </div>
+    </div>
 
-  <div class="row">
-    <div class="col-md-4">
-      <div class="schedule">今後の予定一覧</div>
-      <table class="table">
-        <thead class="thead-light">
-          <tr>
-          <th>タイトル</th>
-          <th>日程</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @events.each do |event| %>
-            <tr>
-            <td><%= link_to event.title , event %></td>
-            <td><%= blog.start.strftime("%m-%d") %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-
+    <div class="left-main">
       <%= form_with(model: @event, local: true) do |form| %>
-
-        <div class="title">
-          <div class="form-tag">タイトル</div>
-          <%= form.text_field :title %>
+        <div class="form-group">
+          <%= form.label :title, "タイトル", class: "form-tag" %>
+          <%= form.text_field :title, class: "form-control" %>
         </div>
-
-        <div class="time">
-          <div class="form-tag">時間</div>
-          <%= form.datetime_select :start %>
+        <div class="form-group">
+          <%= form.label :start, "開始時間", class: "form-tag" %>
+          <%= form.datetime_select :start, class: "form-control" %>
         </div>
-
-        <div class="content">
-          <div class="form-tag">メモ / 振り返り</div>
-          <%= form.text_field :content %>
+        <div class="form-group">
+          <%= form.label :content, "メモ / 振り返り", class: "form-tag" %>
+          <%= form.text_field :content, class: "form-control" %>
         </div>
-
-        <div class="submit">
-          <%= form.submit %>
+        <div class="form-group">
+          <%= form.submit "保存", class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>
+  </div>
 
-    <br>
+  <div class="right">
 
-    <br>
-    <div class="col-md-8">
+    <div class="right-header">
+      <div class="page-title">Simple Calendar</div>
+    </div>
+
+    <div class="cal">
       <%= month_calendar events: @events do |date, events| %>
-        <%= date.day %>
-
+        <div class="calendar-date">
+          <%= date.day %>
+        </div>
         <% events.each do |event| %>
-          <div>
+          <div class="event">
             <%= link_to event.title, event %>
           </div>
         <% end %>
       <% end %>
     </div>
+
   </div>
 </div>
