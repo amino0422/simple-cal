@@ -3,10 +3,10 @@
 
     <div class="left-header">
       <div class="nickname">
-        <a href="#">Tom</a>
+        <%= current_user.nickname %>
       </div>
       <div class="nickname-change">
-        <a href="#">カレンダー変更</a>
+        <%= button_to 'ユーザー切替', destroy_user_session_path, method: :delete, class: "nickname-change-button" %>
       </div>
     </div>
 
@@ -18,14 +18,14 @@
         </div>
         <div class="form-group">
           <%= form.label :start, "開始時間", class: "form-tag" %>
-          <%= form.datetime_select :start, class: "form-control" %>
+          <%= form.datetime_select :start, class: "form-control-datetime", use_month_names: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"] %>
         </div>
         <div class="form-group">
           <%= form.label :content, "メモ / 振り返り", class: "form-tag" %>
-          <%= form.text_field :content, class: "form-control" %>
+          <%= form.text_area :content, class: "form-control-area" %>
         </div>
         <div class="form-group">
-          <%= form.submit "保存", class: "btn btn-primary" %>
+          <%= form.submit "保 存", class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>
@@ -34,7 +34,9 @@
   <div class="right">
 
     <div class="right-header">
-      <div class="page-title">Simple Calendar</div>
+      <div class="page-title">
+        <%= link_to image_tag('logo.png', alt: 'Logo'), root_path %>
+      </div>
     </div>
 
     <div class="cal">
@@ -44,7 +46,7 @@
         </div>
         <% events.each do |event| %>
           <div class="event">
-            <%= link_to event.title, event %>
+            <%= link_to event.title, event %> - <%= event.user.nickname.first %>
           </div>
         <% end %>
       <% end %>

@@ -1,0 +1,44 @@
+<div class="main">
+  <div class="left">
+
+    <div class="left-header">
+      <div class="nickname">
+      </div>
+      <div class="nickname-change">
+      </div>
+    </div>
+
+    <div class="left-main">
+    </div>
+  </div>
+
+  <div class="right">
+
+    <div class="right-header">
+      <div class="page-title">
+        <%= link_to image_tag('logo.png', alt: 'Logo'), root_path %>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>ログイン</h2>
+      <%= form_with model: @user, url: user_session_path, id: 'new_user', class: 'log-in-form', local: true do |f| %>
+        <div class="log-in-group">
+          <%= f.label :メールアドレス, class: "log-in-label" %><br />
+          <%= f.email_field :email, autofocus: true, class: "log-in-input" %>
+        </div>
+
+        <div class="log-in-group">
+          <%= f.label :パスワード, class: "log-in-label" %><br />
+          <%= f.password_field :password, autocomplete: "off", class: "log-in-input" %>
+        </div>
+
+        <div class="log-in-actions">
+          <%= f.submit "ログイン", class: "log-in-button" %>
+          <%= link_to "新規登録はこちらから", new_user_registration_path, class: "sign-up-link" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

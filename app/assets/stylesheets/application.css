@@ -15,6 +15,12 @@
  *= require_self
  */
 
+/* content入力欄のフォント変更 */
+input[type="text"],
+textarea {
+  font-family: Arial, sans-serif;
+}
+
 .header {
   height: 100px;
 }
@@ -24,59 +30,108 @@
 }
 .left {
   background-color: #253141;
-  width: 550px;
+  width: 370px;
   height: 100vh;
 }
 
 .left-header {
-  height: 80px;
+  height: 180px;
   padding: 0 20px;
-  background-color: #253141;
+  background-color: #303030;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.nickname a{
-  font-size: 16px;
+.nickname {
+  font-size: 20px;
   color: #FAFAFA;
   text-decoration: none;
 }
 
-.nickname-change a {
-  font-size: 10px;
-  border: 1px solid lightblue;
-  padding: 14px;
-  color: deepskyblue;
-  text-decoration: none;
+.nickname-change-button {
+  background-color: #666;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.nickname-change-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .left-main {
-  background-color: #2F3E51;
+  background-color: #3b3b3b;
   color: white;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 180px);
   padding: 20px;
+}
+
+.form-group label,
+.form-group .form-control {
+    display: block;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-tag {
+  font-weight: bold;
+  color: white;
+}
+
+.form-control {
+  width: 100%;
+  height: 30px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-control-area {
+  display: block;
+  width: 100%;
+  height: 290px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn-primary {
+  background-color: #666;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .right {
   background-color: #FFFFFF;
-  width: calc(100vw - 550px);
+  width: calc(100vw - 370px);
 }
 
 .right-header {
-  height: 80px;
+  height: 180px;
   display: flex;
 }
 
 .page-title {
-  color: #333;
-  font-size: 24px;
   padding: 20px;
 }
 
 .cal {
   background-color: #FAFAFA;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 180px);
   padding: 20px;
 }
 
@@ -84,10 +139,273 @@
   background-color: #FAFAFA;
   height: calc(100vh - 80px);
   padding: 20px;
+  position: relative;
+}
+
+.show-info {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.show-label {
+  width: 100px;
+  color: #FAFAFA;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  padding: 0.5em 0.8em;
+  border-radius: 5px 0 0 5px;
+  background-color: #5c5c5c;
+  border: 3px solid black;
+  border-right: none;
+}
+
+.show-value {
+  flex: 1;
+  color: black;
+  font-weight: bold;
+  border-left: solid 8px black;
+  background: #d6d6d6;
+  line-height: 1.5;
+  border-radius: 0 15px 15px 0;
+  padding: 0.5em;
+  margin-left: 5px;
+}
+
+.action-buttons {
+  margin-top: 20px;
+}
+
+.action-button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  font-size: 18px;
+}
+
+.edit-button {
+  background-color: #333;
+}
+
+.delete-button {
+  background-color: #666;
+}
+
+.return-button {
+  background-color: #999;
+}
+
+.action-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .edit {
   background-color: #FAFAFA;
   height: calc(100vh - 80px);
   padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  font-weight: bold;
+  color: black;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-submit {
+  margin-top: 20px;
+}
+
+.submit-button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin-right: 10px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  font-size: 18px;
+}
+
+.update-button {
+  background-color: #333;
+  border: none;
+  box-shadow: none;
+}
+
+.go-show-button {
+  background-color: #666;
+}
+
+.go-top-button {
+  background-color: #999;
+}
+
+.submit-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.simple-calendar {
+  font-family: Arial, sans-serif;
+}
+
+.calendar-heading {
+  padding: 10px 0;
+}
+
+.calendar-heading a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.calendar-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 10px;
+  border: 1px solid #dee2e6;
+  font-weight: bold;
+}
+
+.table th {
+  background-color: #303030;
+  color: white;
+}
+
+.table td {
+  background-color: #fff;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f8f9fa;
+}
+
+.table th:nth-child(6) {
+  color: #4885ff;
+}
+
+.table th:nth-child(7) {
+  color: #ff6161;
+}
+
+.container {
+  margin: 0 20px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.h2 {
+  margin-bottom: 20px;
+}
+
+.sign-up-group {
+  margin-bottom: 20px;
+}
+
+.sign-up-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.sign-up-input {
+  width: calc(100% - 30px);
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.sign-up-actions {
+  margin-top: 20px;
+}
+
+.sign-up-button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin-right: 10px;
+  text-decoration: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  font-size: 18px;
+  border: none;
+  box-shadow: none;
+}
+
+.sign-up-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.log-in-group {
+  margin-bottom: 20px;
+}
+
+.log-in-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.log-in-input {
+  width: calc(100% - 30px);
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.log-in-actions {
+  margin-top: 20px;
+}
+
+.log-in-button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  margin-right: 10px;
+  text-decoration: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  font-size: 18px;
+  border: none;
+  box-shadow: none;
+}
+
+.log-in-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.sign-up-link {
+  display: inline-block;
+  margin-top: 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.sign-up-link:hover {
+  text-decoration: underline;
 }

@@ -1,0 +1,58 @@
+<div class="main">
+  <div class="left">
+
+    <div class="left-header">
+      <div class="nickname">
+      </div>
+      <div class="nickname-change">
+      </div>
+    </div>
+
+    <div class="left-main">
+    </div>
+  </div>
+
+  <div class="right">
+
+    <div class="right-header">
+      <div class="page-title">
+        <%= link_to image_tag('logo.png', alt: 'Logo'), root_path %>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>ユーザー登録</h2>
+      <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="sign-up-group">
+          <%= f.label :ニックネーム, class: "sign-up-label" %> <em>(6 characters maximum)</em><br />
+          <%= f.text_field :nickname, autofocus: true, maxlength: "6", class: "sign-up-input" %>
+        </div>
+
+        <div class="sign-up-group">
+          <%= f.label :メールアドレス, class: "sign-up-label" %><br />
+          <%= f.email_field :email, class: "sign-up-input" %>
+        </div>
+
+        <div class="sign-up-group">
+          <%= f.label :パスワード, class: "sign-up-label" %>
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off", class: "sign-up-input" %>
+        </div>
+
+        <div class="sign-up-group">
+          <%= f.label :パスワード再入力, class: "sign-up-label" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "sign-up-input" %>
+        </div>
+
+        <div class="sign-up-actions">
+          <%= f.submit "Sign up", class: "sign-up-button" %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+</div>

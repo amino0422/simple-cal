@@ -3,59 +3,53 @@
 
     <div class="left-header">
       <div class="nickname">
-        <a href="#">Tom</a>
+        <%= current_user.nickname %>
       </div>
       <div class="nickname-change">
-        <a href="#">カレンダー変更</a>
+        <%= button_to 'ユーザー切替', destroy_user_session_path, method: :delete, class: "nickname-change-button" %>
       </div>
     </div>
 
     <div class="left-main">
-      <%= form_with(model: @event, local: true) do |form| %>
-        <div class="form-group">
-          <%= form.label :title, "タイトル", class: "form-tag" %>
-          <%= form.text_field :title, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= form.label :start, "開始時間", class: "form-tag" %>
-          <%= form.datetime_select :start, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= form.label :content, "メモ / 振り返り", class: "form-tag" %>
-          <%= form.text_field :content, class: "form-control" %>
-        </div>
-        <div class="form-group">
-          <%= form.submit "保存", class: "btn btn-primary" %>
-        </div>
-      <% end %>
     </div>
   </div>
 
   <div class="right">
 
     <div class="right-header">
-      <div class="page-title">Simple Calendar</div>
+      <div class="page-title">
+        <%= link_to image_tag('logo.png', alt: 'Logo'), root_path %>
+      </div>
     </div>
 
     <div class="show">
-      <p>
-        <strong>タイトル</strong>
-        <%= @event.title %>
-      </p>
+      <div class="show-info">
+        <div class="show-label">タイトル</div>
+        <div class="show-value"><%= @event.title %></div>
+      </div>
 
-      <p>
-        <strong>日時</strong>
-        <%= @event.start.strftime("%m-%d") %>
-      </p>
+      <div class="show-info">
+        <div class="show-label">日時</div>
+        <div class="show-value"><%= @event.start.strftime("%m/%d %H:%M") %></div>
+      </div>
 
-      <p>
-        <strong>内容</strong>
-        <%= @event.content %>
-      </p>
+      <div class="show-info">
+        <div class="show-label">内容</div>
+        <div class="show-value"><%= @event.content %></div>
+      </div>
 
-      <%= link_to '編集', edit_event_path(@event) %>
-      <%= link_to '消去',event_path(@event.id), method: :delete, data: { confirm: '本当に?' } %>
-      <%= link_to '戻る', events_path %>
+      <div class="show-info">
+        <div class="show-label">ニックネーム</div>
+        <div class="show-value"><%= @event.user.nickname %></div>
+      </div>
+
+      <div class="action-buttons">
+        <% if user_signed_in? && current_user.id == @event.user_id %>
+          <%= link_to '編集', edit_event_path(@event), class: "action-button edit-button" %>
+          <%= link_to '削除', event_path(@event.id), data: { turbo_method: :delete }, class: "action-button delete-button" %>
+        <% end %>
+        <%= link_to '戻る', root_path, class: "action-button return-button" %>
+      </div>
     </div>
 
   </div>

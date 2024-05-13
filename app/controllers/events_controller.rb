@@ -1,6 +1,9 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: [:show, :destroy, :edit, :update]
+  before_action :move_to_index
+
   def index
-    @events = Event.all
+    @events = Event.includes(:user)
     @event = Event.new
   end
   
@@ -9,28 +12,24 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
   end
 
   def create
-    Event.create(event_parameter)
+    Event.create(event_params)
     redirect_to events_path
   end
 
   def destroy
-    @event = Event.find(params[:id])
     @event.destroy
-    redirect_to events_path, notice:"削除しました"
+    redirect_to root_path
   end
 
   def edit
-    @event = Event.find(params[:id])
   end
 
   def update
-    @event = Event.find(params[:id])
-    if @event.update(event_parameter)
-      redirect_to events_path, notice: "編集しました"
+    if @event.update(event_params)
+      redirect_to root_path
     else
       render 'edit'
     end
@@ -38,7 +37,17 @@ class EventsController < ApplicationController
 
   private
 
-  def event_parameter
-    params.require(:event).permit(:title, :start, :content)
+  def event_params
+    params.require(:event).permit(:title, :start, :content).merge(user_id: current_user.id)
+  end
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
 end
