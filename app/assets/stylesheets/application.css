@@ -21,19 +21,18 @@ textarea {
   font-family: Arial, sans-serif;
 }
 
-.header {
-  height: 100px;
-}
-
+/* ページ全体 */
 .main {
   display: flex;
 }
+
+/* ページ左 */
 .left {
-  background-color: #253141;
   width: 370px;
   height: 100vh;
 }
 
+/* ページ左上 */
 .left-header {
   height: 180px;
   padding: 0 20px;
@@ -43,12 +42,14 @@ textarea {
   align-items: center;
 }
 
+/* ユーザー名 */
 .nickname {
   font-size: 20px;
   color: #FAFAFA;
   text-decoration: none;
 }
 
+/* ユーザー切替ボタン */
 .nickname-change-button {
   background-color: #666;
   color: white;
@@ -64,6 +65,7 @@ textarea {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+/* ページ左下 */
 .left-main {
   background-color: #3b3b3b;
   color: white;
@@ -71,6 +73,7 @@ textarea {
   padding: 20px;
 }
 
+/* 予定・タスク入力フォーム */
 .form-group label,
 .form-group .form-control {
     display: block;
@@ -115,26 +118,31 @@ textarea {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+/* ページ右 */
 .right {
   background-color: #FFFFFF;
   width: calc(100vw - 370px);
 }
 
+/* ページ右上 */
 .right-header {
   height: 180px;
   display: flex;
 }
 
+/* ロゴ */
 .page-title {
   padding: 20px;
 }
 
+/* カレンダー */
 .cal {
   background-color: #FAFAFA;
   height: calc(100vh - 180px);
   padding: 20px;
 }
 
+/* 詳細表示 */
 .show {
   background-color: #FAFAFA;
   height: calc(100vh - 80px);
@@ -172,6 +180,7 @@ textarea {
   margin-left: 5px;
 }
 
+/* 詳細表示下ボタン */
 .action-buttons {
   margin-top: 20px;
 }
@@ -203,12 +212,14 @@ textarea {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+/* 編集ページ */
 .edit {
   background-color: #FAFAFA;
   height: calc(100vh - 80px);
   padding: 20px;
 }
 
+/* 編集フォーム */
 .form-group {
   margin-bottom: 20px;
 }
@@ -229,6 +240,7 @@ textarea {
   margin-top: 20px;
 }
 
+/* 編集フォーム下ボタン */
 .submit-button {
   display: inline-block;
   padding: 0.5em 1em;
@@ -258,6 +270,7 @@ textarea {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+/* カレンダー体裁 */
 .simple-calendar {
   font-family: Arial, sans-serif;
 }
@@ -311,6 +324,7 @@ textarea {
   color: #ff6161;
 }
 
+/* 新規登録ページ */
 .container {
   margin: 0 20px;
   padding: 20px;
@@ -361,6 +375,7 @@ textarea {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
+/* ログインページ */
 .log-in-group {
   margin-bottom: 20px;
 }
