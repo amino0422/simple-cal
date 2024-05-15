@@ -82,3 +82,5 @@ gem 'sassc'
 group :production do
   gem 'pg'
 end
+
+gem 'rails-i18n'
