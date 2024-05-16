@@ -1,26 +1,9 @@
 <div class="main">
-  <div class="left">
 
-    <div class="left-header">
-      <div class="nickname">
-        <%= current_user.nickname %>
-      </div>
-      <div class="nickname-change">
-        <%= button_to 'ユーザー切替', destroy_user_session_path, method: :delete, class: "nickname-change-button" %>
-      </div>
-    </div>
-
-    <div class="left-main">
-    </div>
+  <div class="left-main">
   </div>
 
-  <div class="right">
-
-    <div class="right-header">
-      <div class="page-title">
-        <%= link_to image_tag('logo.png', alt: 'Logo'), root_path %>
-      </div>
-    </div>
+  <div class="right-main">
 
     <div class="edit">
       <%= form_with(model: @event, local: true) do |form| %>
@@ -32,12 +15,27 @@
 
         <div class="form-group">
           <%= form.label :start, "日時", class: "form-label" %>
-          <%= form.datetime_select :start, class: "form-input", use_month_names: ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"] %>
+          <%= raw sprintf(
+              form.datetime_select(
+                :start,
+                {
+                  start_year:     Time.zone.now.prev_year.year,
+                  end_year:       Time.zone.now.next_year.year,
+                  default:        Time.zone.now,
+                  use_two_digit_numbers: true,
+                  date_separator: '%s',
+                  datetime_separator: '%s',
+                  time_separator: '%s'
+                },
+                { class: 'form-input-datetime' }
+              ),
+              '年 ', '月 ', '日 ', '時 ') + '分'
+            %>
         </div>
 
         <div class="form-group">
           <%= form.label :content, "メモ / 振り返り", class: "form-label" %>
-          <%= form.text_area :content, class: "form-input" %>
+          <%= form.text_area :content, class: "form-input-area" %>
         </div>
 
         <div class="form-submit">

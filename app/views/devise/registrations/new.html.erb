@@ -1,24 +1,9 @@
 <div class="main">
-  <div class="left">
 
-    <div class="left-header">
-      <div class="nickname">
-      </div>
-      <div class="nickname-change">
-      </div>
-    </div>
-
-    <div class="left-main">
-    </div>
+  <div class="left-main">
   </div>
 
-  <div class="right">
-
-    <div class="right-header">
-      <div class="page-title">
-        <%= link_to image_tag('logo.png', alt: 'Logo'), root_path %>
-      </div>
-    </div>
+  <div class="right-main">
 
     <div class="container">
       <h2>ユーザー登録</h2>
@@ -50,6 +35,7 @@
 
         <div class="sign-up-actions">
           <%= f.submit "登録", class: "sign-up-button" %>
+          <%= link_to "ログインはこちらから", new_user_session_path, class: "sign-up-link" %>
         </div>
       <% end %>
     </div>

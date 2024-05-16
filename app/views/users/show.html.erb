@@ -1,7 +1,7 @@
 <div class="main">
 
   <div class="left-main">
-    <%= form_with(model: @event, local: true) do |form| %>
+    <%= form_with(model: @event, url: user_events_path(current_user), local: true) do |form| %>
       <div class="form-group">
         <%= form.label :title, "タイトル", class: "form-tag" %>
         <%= form.text_field :title, class: "form-control" %>
@@ -39,8 +39,9 @@
 
     <div class="cal">
       <div class="current_cal">
-        TEAM<span class="space"></span>のカレンダー
+        <%= current_user.nickname %><span class="space"></span>のカレンダー
       </div>
+
       <%= month_calendar events: @events do |date, events| %>
         <div class="calendar-date">
           <%= date.day %>
@@ -53,7 +54,7 @@
       <% end %>
 
       <div class="action-buttons">
-        <%= link_to "#{current_user.nickname}のカレンダーへ", "/users/#{current_user.id}", class: "action-button edit-button" %>
+        <%= link_to "TEAMのカレンダーへ", root_path, class: "action-button edit-button" %>
       </div>
 
     </div>
