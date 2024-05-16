@@ -11,4 +11,11 @@ describe EventsController, type: :request do
       expect(response.status).to eq 401
     end
   end
+
+  describe 'GET #show' do
+    it 'showアクションにリクエストすると正常にレスポンスが返ってくる' do
+      get root_path(@event)
+      expect(response.status).to eq 401
+    end
+  end
 end

@@ -29,12 +29,13 @@ textarea {
 
 /* ヘッダー左 */
 .left-header {
-  width: 370px;
+  width: 352px;
   padding: 0 29px;
   background-color: #303030;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .nickname {
@@ -61,8 +62,9 @@ textarea {
 
 /* ヘッダー右 */
 .right-header {
-  width: calc(100vw - 370px);
+  flex-grow: 1;
   display: flex;
+  overflow: auto;
 }
 
 .page-title {
@@ -82,6 +84,7 @@ textarea {
   color: white;
   width: 370px;
   padding: 20px;
+  flex-shrink: 0;
 }
 
 /* 予定・タスク入力フォーム */
@@ -144,7 +147,7 @@ textarea {
   background-color: #FAFAFA;
   flex: 1;
   padding: 20px;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 /* メイン下ボタン */
