@@ -11,26 +11,6 @@
   </head>
 
   <body>
-    <header class="header">
-
-      <div class="left-header">
-        <% if user_signed_in? %>
-          <div class="nickname">
-            <%= current_user.nickname %>
-          </div>
-          <div class="nickname-change">
-            <%= button_to 'ユーザー切替', destroy_user_session_path, method: :delete, class: "nickname-change-button" %>
-          </div>
-        <% end %>
-      </div>
-
-      <div class="right-header">
-        <div class="page-title">
-          <%= link_to image_tag('logo.png', alt: 'Logo'), root_path %>
-        </div>
-      </div>
-
-    </header>
     <%= yield %>
   </body>
 </html>
