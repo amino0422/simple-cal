@@ -1,7 +1,6 @@
 # SIMPLE-CAL
 ![alt text](logo.png)
 
-
 # 本アプリケーションのURL
 https://simple-cal.onrender.com
 
@@ -65,7 +64,7 @@ https://simple-cal.onrender.com
 | title              | string     | null: false                    |
 | start              | datetime   | null: false                    |
 | content            | text       |                                |
-| user_id            | references | null: false, foreign_key: ture |
+| user_id            | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :users
@@ -73,3 +72,5 @@ https://simple-cal.onrender.com
 # 今後の展望
 - グループ機能によるアクセス制限を設け、不特定多数によるの閲覧を制限します。
 - その他、製作者の知識・技術の向上のためのインプット・アウトプットに精進し、それに基づいた各種ブラッシュアップを続けてまいります。
+
+# 貴重なお時間を割き、最後までご高覧いただきましてありがとうございました。
