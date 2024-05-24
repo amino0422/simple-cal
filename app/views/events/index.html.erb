@@ -2,7 +2,7 @@
 
   <div class="left-header">
     <div class="nickname">
-      <%#= current_user.nickname %>
+      <%= current_user.nickname %>
     </div>
     <div class="nickname-change">
       <%= button_to 'ユーザー切替', destroy_user_session_path, method: :delete, class: "nickname-change-button" %>
@@ -67,13 +67,13 @@
         </div>
         <% events.each do |event| %>
           <div class="event">
-            <%= link_to event.title, event %> - <%#= event.user.nickname.first %>
+            <%= link_to event.title, event %> - <%= event.user.nickname.first %>
           </div>
         <% end %>
       <% end %>
 
       <div class="action-buttons">
-        <%#= link_to "#{current_user.nickname}のカレンダーへ", "/users/#{current_user.id}", class: "action-button edit-button" %>
+        <%= link_to "#{current_user.nickname}のカレンダーへ", "/users/#{current_user.id}", class: "action-button edit-button" %>
       </div>
 
     </div>
