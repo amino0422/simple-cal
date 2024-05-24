@@ -67,7 +67,7 @@
         </div>
         <% events.each do |event| %>
           <div class="event">
-            <%= link_to event.title, event %> - <%= event.user.nickname.first %>
+            <%= link_to event.title, event %> - <%#= event.user.nickname.first %>
           </div>
         <% end %>
       <% end %>
