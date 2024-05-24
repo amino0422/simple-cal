@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :destroy, :edit, :update]
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index
 
   def index
     @events = Event.includes(:user)
