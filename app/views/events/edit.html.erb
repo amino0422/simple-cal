@@ -2,7 +2,7 @@
 
   <div class="left-header">
     <div class="nickname">
-      <%#= current_user.nickname %>
+      <%= current_user.nickname %>
     </div>
     <div class="nickname-change">
       <%= button_to 'ユーザー切替', destroy_user_session_path, method: :delete, class: "nickname-change-button" %>
