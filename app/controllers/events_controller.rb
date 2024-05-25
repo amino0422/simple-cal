@@ -5,6 +5,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.includes(:user)
     @event = Event.new
+    @user = @event.user
   end
   
   def new
@@ -12,6 +13,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @user = @event.user
   end
 
   def create
